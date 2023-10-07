@@ -1,0 +1,24 @@
+def find_first_occurrences(word, text):
+    char_set = set(word)
+    
+    # список для збереження перших входжень символів
+    first_occurrences = []
+   
+    for char in text:
+        if char in char_set:
+            # Якщо символ є в множині, додаємо його до списку перших входжень
+            first_occurrences.append(char)
+            # Видаляємо символ з множини, щоб уникнути дублікатів
+            char_set.remove(char)
+    
+    return first_occurrences
+
+# слово від користуача
+word = input("Введіть слово з латинських літер: ")
+
+# текст від користуача
+text = input("Введіть текст: ")
+
+# Викликаємо функцію для пошуку та виведення перших входжень символів
+result = find_first_occurrences(word, text)
+print("Перші входження символів у вказаному порядку:", result)
