@@ -1,0 +1,22 @@
+def swap_min_max(lst):
+    if not lst:
+        print("Список порожній.")
+        return
+
+    #  індекси мінімального і максимального елементів у списку
+    min_index = lst.index(min(lst))
+    max_index = lst.index(max(lst))
+
+    # Міняємо місцями мінімальний і максимальний елементи
+    lst[min_index], lst[max_index] = lst[max_index], lst[min_index]
+
+# список від користуача
+user_input = input("Введіть список елементів через пробіл: ")
+
+user_list = [int(x) for x in user_input.split()]
+
+# функціz для міняння місцями максимального і мінімального елементів
+swap_min_max(user_list)
+
+# оновлений список на екран
+print("Оновлений список:", user_list)
