@@ -1,0 +1,31 @@
+def insert_elements_on_odd_positions(lst, new_elements):
+    # Перевірка, чи кількість нових елементів відповідає умовам
+    if len(lst) % 2 == 0 and len(new_elements) != len(lst) // 2:
+        print("Помилка: Кількість нових елементів має дорівнювати (len(lst) // 2).")
+        return
+    elif len(lst) % 2 == 1 and len(new_elements) != len(lst) // 2 + 1:
+        print("Помилка: Кількість нових елементів має дорівнювати (len(lst) // 2 + 1).")
+        return
+
+    #  нові елементи на непарні позиції
+    for i in range(len(new_elements)):
+        index = 2 * i + 1  # Обчислюємо індекс непарної позиції
+        lst.insert(index, new_elements[i])
+
+
+user_input = input("Введіть список елементів через пробіл: ")
+
+
+user_list = [int(x) for x in user_input.split()]
+
+#  нові елементи від користуача
+new_elements_input = input("Введіть нові елементи через пробіл: ")
+
+# 
+new_elements = [int(x) for x in new_elements_input.split()]
+
+#  функція для вставки нових елементів на непарні позиції
+insert_elements_on_odd_positions(user_list, new_elements)
+
+# Вивідоновлений список на екран
+print("Оновлений список:", user_list)
