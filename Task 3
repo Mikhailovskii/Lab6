@@ -1,17 +1,22 @@
+from collections import OrderedDict
+
 def find_first_occurrences(word, text):
-  char_set = set(word)
-  first_occurrences = []
+    char_set = set(word)
+    first_occurrences = OrderedDict()
 
-  for char in text:
-      if char in char_set:
-          first_occurrences.append(char)
-          char_set.remove(char)
+    for char in text:
+        if char in char_set:
+            first_occurrences[char] = None
+            char_set.remove(char)
+        if not char_set:
+            break
 
-  return set(first_occurrences)
+    return set(first_occurrences.keys())
 
 word = input("Введіть слово з латинських літер: ")
 text = input("Введіть текст: ")
+
 result = find_first_occurrences(word, text)
 
+# Виводимо результат у вигляді множини
 print("Перші входження символів у вказаному порядку:", result)
-
